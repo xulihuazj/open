@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+  <appender name="CORE" class="org.apache.log4j.FileAppender">
+    <param name="File"   value="${org.apache.cocoon.work.directory}/cocoon-logs/log4j.log" />
+    <param name="Append" value="false" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %-5p %t %c - %m%n"/>
+    </layout>
+  </appender>
+
+  <root>
+    <priority value="${org.apache.cocoon.log4j.loglevel}"/>
+    <appender-ref ref="CORE"/>
+  </root>
+</log4j:configuration>

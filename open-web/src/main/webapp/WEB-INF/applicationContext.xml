@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:util="http://www.springframework.org/schema/util"
@@ -9,10 +8,7 @@
                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
                            http://cocoon.apache.org/schema/configurator http://cocoon.apache.org/schema/configurator/cocoon-configurator-1.0.1.xsd
                            http://cocoon.apache.org/schema/avalon http://cocoon.apache.org/schema/avalon/cocoon-avalon-1.0.xsd">
-
-  <!-- Activate Cocoon Spring Configurator -->
   <configurator:settings/>
-
   <!-- Configure Log4j -->
   <bean name="org.apache.cocoon.spring.configurator.log4j"
         class="org.apache.cocoon.spring.configurator.log4j.Log4JConfigurator"

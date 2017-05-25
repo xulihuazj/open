@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+  <!--初始化类 PlatformWebApplicaitonContext-->
+  <context-param>
+    <param-name>contextClass</param-name>
+    <param-value>
+      com.xulihuazj.cssp.web.platform.PlatformWebApplicationContext
+    </param-value>
+  </context-param>
+
+  <!--上下文加载监听器-->
+  <listener>
+    <listener-class>
+      org.springframework.web.context.ContextLoaderListener
+    </listener-class>
+  </listener>
+
+  <!--配置文件所在路径-->
+<context-param>
+  <param-name>confPath</param-name>
+  <param-value>/home/conf/open-web</param-value>
+</context-param>
+
+<!--编码过滤器-->
+  <filter>
+    <filter-name>encoding</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encoding</filter-name>
+    <url-pattern>*.do</url-pattern>
+  </filter-mapping>
+
+
+
+  <!--<listener>
+    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+  </listener>-->
+
+  <servlet>
+      <description>springMVC DispatcherServlet</description>
+      <servlet-name>springMVC</servlet-name>
+      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath*:/spring-mvc.xml</param-value>
+        </init-param>
+      <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DispatcherServlet</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+</web-app>
+        
